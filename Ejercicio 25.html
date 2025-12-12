@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rellena tu CV</title>
+</head>
+<body>
+
+<h2>Rellena tu CV</h2>
+
+<form action="procesar.php" method="POST" enctype="multipart/form-data">
+
+    <label for="nombre">Nombre</label><br>
+    <input type="text" id="nombre" name="nombre" maxlength="30"><br><br>
+
+    <label for="apellidos">Apellidos</label><br>
+    <input type="text" id="apellidos" name="apellidos" maxlength="80" size="50"><br><br>
+
+    <label for="pass">Contraseña</label><br>
+    <input type="password" id="pass" name="pass" maxlength="10"><br><br>
+
+    <label for="dni">DNI</label><br>
+    <input type="text" id="dni" name="dni" size="15"><br><br>
+
+    <label>Sexo</label><br>
+    <input type="radio" id="hombre" name="sexo" value="hombre">
+    <label for="hombre">Hombre</label><br>
+
+    <input type="radio" id="mujer" name="sexo" value="mujer">
+    <label for="mujer">Mujer</label><br><br>
+
+    <label for="foto">Incluir mi foto</label><br>
+    <input type="file" id="foto" name="foto"><br><br>
+
+    <input type="checkbox" id="boletin" name="boletin" checked>
+    <label for="boletin">Suscribirme al boletín de novedades</label><br><br>
+
+
+    <fieldset style="width:400px;">
+        <legend>Datos personales</legend>
+
+        <label for="provincia">Provincia</label><br>
+        <select name="provincia" id="provincia">
+            <option value="">- selecciona -</option>
+            <option>Madrid</option>
+            <option>Barcelona</option>
+            <option>Valencia</option>
+            <option>Sevilla</option>
+            <option>Zaragoza</option>
+            <option>Málaga</option>
+            <option>Otra</option>
+        </select><br><br>
+
+        <label>Fecha de nacimiento</label><br>
+
+        Día <input type="number" name="dia" min="1" max="31" style="width:60px;">
+        de 
+        <select name="mes">
+            <option>Enero</option>
+            <option>Febrero</option>
+            <option>Marzo</option>
+            <option>Abril</option>
+            <option>Mayo</option>
+            <option>Junio</option>
+            <option>Julio</option>
+            <option>Agosto</option>
+            <option>Septiembre</option>
+            <option>Octubre</option>
+            <option>Noviembre</option>
+            <option>Diciembre</option>
+        </select>
+        de 
+        <input type="number" name="anio" min="1900" max="2025" style="width:80px;"><br><br>
+
+        <label for="temas">Temas de interés</label><br>
+        <select name="temas[]" id="temas" size="6" multiple style="width:250px;">
+            <option>Administración de bases de datos</option>
+            <option>Análisis y programación</option>
+            <option>Arquitectura</option>
+            <option>Calidad</option>
+            <option>ERP, CRM, Business Intelligence</option>
+            <option>Redes y sistemas</option>
+        </select><br><br>
+    </fieldset>
+
+    <br>
+
+    <input type="submit" value="Guardar cambios">
+    <input type="reset" value="Borrar los datos introducidos">
+
+</form>
+
+</body>
+</html>

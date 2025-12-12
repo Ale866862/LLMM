@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 21 - Miniaturas</title>
+    <style>
+        .thumbnail {
+            float: left;
+            width: 150px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .thumbnail:hover {
+            border: 1px solid #777;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Galería de Imágenes</h2>
+<p>Haz clic en cualquier miniatura para ver la imagen completa.</p>
+
+<div class="clearfix">
+
+    <a href="Fotos/imagen 1.jpg" class="thumbnail" target="_blank">
+        <img src="Fotos/imagen 1.jpg" alt="Imagen 1">
+    </a>
+
+    <a href="Fotos/imagen 2.jpg" class="thumbnail" target="_blank">
+        <img src="Fotos/imagen 2.jpg" alt="Imagen 2">
+    </a>
+
+    <a href="Fotos/imagen 3.jpg" class="thumbnail" target="_blank">
+        <img src="Fotos/imagen 3.jpg" alt="Imagen 3">
+    </a>
+
+    <a href="Fotos/imagen 4.jpg" class="thumbnail" target="_blank">
+        <img src="Fotos/imagen 4.jpg" alt="Imagen 4">
+    </a>
+
+</div>
+
+</body>
+</html>
