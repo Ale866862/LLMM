@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web4U — HTML: etiquetas y uso</title>
+  <meta name="description" content="Ejemplos y explicaciones de etiquetas HTML con resultados visuales.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/index.html">Web4U</a>
+      <nav aria-label="Navegación del sitio">
+        <ul class="main-nav">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/html.html" aria-current="page">HTML</a></li>
+          <li><a href="/svg.html">SVG</a></li>
+          <li><a href="/css.html">CSS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <article>
+      <header>
+        <h1 id="top">HTML — etiquetas y uso</h1>
+        <p class="lead">Aquí se explican varias etiquetas HTML con ejemplos reales, casos de uso, código para copiar y una imagen SVG que muestra el resultado.</p>
+        <p><a class="btn" href="/pdf/html.pdf" title="Descargar PDF de la página">Descargar PDF</a></p>
+      </header>
+
+      <nav id="toc" class="toc" aria-label="Tabla de contenidos">
+        <h2>Contenido</h2>
+        <ol>
+          <li><a href="#p">Párrafo — &lt;p&gt;</a></li>
+          <li><a href="#a">Enlace — &lt;a&gt;</a></li>
+          <li><a href="#img">Imagen — &lt;img&gt;</a></li>
+          <li><a href="#table">Tabla — &lt;table&gt;</a></li>
+          <li><a href="#form">Formulario — &lt;form&gt;</a></li>
+        </ol>
+      </nav>
+
+      <!-- Ejemplo 1: p -->
+      <section id="p" class="example">
+        <h3>Párrafo — <code>&lt;p&gt;</code></h3>
+        <p class="meta">Uso: agrupar texto en bloques semánticos. Evita usar &lt;br&gt; para maquetación.</p>
+
+        <h4>Código</h4>
+        <pre><code class="code">&lt;!-- Párrafo básico --&gt;
+&lt;p&gt;Este es un párrafo de ejemplo. Utiliza etiquetas semánticas para mejorar accesibilidad.&lt;/p&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;!-- Párrafo básico --&gt;\n&lt;p&gt;Este es un párrafo de ejemplo. Utiliza etiquetas semánticas para mejorar accesibilidad.&lt;/p&gt;">Copiar</button>
+        </div>
+
+        <h4>Resultado</h4>
+        <figure>
+          <!-- presentación del resultado como SVG (imagen) -->
+          <svg width="640" height="96" viewBox="0 0 640 96" role="img" aria-label="Resultado párrafo">
+            <rect width="640" height="96" rx="10" fill="#0f0b12"/>
+            <text x="20" y="42" font-family="Inter, Arial" font-size="16" fill="#eee">Este es un párrafo de ejemplo. Utiliza etiquetas semánticas para mejorar accesibilidad.</text>
+          </svg>
+          <figcaption>Representación visual del párrafo.</figcaption>
+        </figure>
+
+        <p>Referencia W3C/WHATWG: <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-p-element" target="_blank" rel="noopener">Elemento &lt;p&gt;</a></p>
+      </section>
+
+      <!-- Ejemplo 2: a -->
+      <section id="a" class="example">
+        <h3>Enlace — <code>&lt;a&gt;</code></h3>
+        <p class="meta">Uso: navegación entre páginas o enlaces externos. Añade <code>title</code> para información extra.</p>
+
+        <h4>Código</h4>
+        <pre><code class="code">&lt;a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer" title="Abrir W3C en una pestaña nueva"&gt;W3C — especificaciones web&lt;/a&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;a href=&quot;https://www.w3.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; title=&quot;Abrir W3C en una pestaña nueva&quot;&gt;W3C — especificaciones web&lt;/a&gt;">Copiar</button>
+        </div>
+
+        <h4>Resultado</h4>
+        <figure>
+          <svg width="520" height="56" viewBox="0 0 520 56" role="img" aria-label="Resultado enlace">
+            <rect width="520" height="56" rx="8" fill="#120912"/>
+            <text x="16" y="36" font-family="Inter, Arial" font-size="16" fill="#c7a1ff">W3C — especificaciones web (abre en nueva pestaña)</text>
+          </svg>
+        </figure>
+
+        <p>Referencia: <a href="https://html.spec.whatwg.org/multipage/links.html#the-a-element" target="_blank" rel="noopener">Elemento &lt;a&gt;</a></p>
+      </section>
+
+      <!-- Ejemplo 3: img -->
+      <section id="img" class="example">
+        <h3>Imagen — <code>&lt;img&gt;</code></h3>
+        <p class="meta">Uso: incrustar imágenes. Siempre proporciona <code>alt</code> descriptivo.</p>
+
+        <h4>Código</h4>
+        <pre><code class="code">&lt;img src="" alt="Miniatura HTML con tarjeta morada" width="300"&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;img src=&quot;/assets/thumbs-html.svg&quot; alt=&quot;Miniatura HTML con tarjeta morada&quot; width=&quot;300&quot;&gt;">Copiar</button>
+        </div>
+
+        <h4>Resultado</h4>
+        <figure>
+          <img src="/assets/thumbs-html.svg" alt="Miniatura HTML" width="320">
+          <figcaption>SVG usado como recurso para &lt;img&gt;.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element" target="_blank" rel="noopener">Elemento &lt;img&gt;</a></p>
+      </section>
+
+      <!-- Ejemplo 4: table -->
+      <section id="table" class="example">
+        <h3>Tabla — <code>&lt;table&gt;</code></h3>
+        <p class="meta">Uso: datos tabulares. No usar tablas para maquetación.</p>
+
+        <h4>Código</h4>
+        <pre><code class="code">&lt;table&gt;
+  &lt;caption&gt;Ventas mensuales&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th scope="col"&gt;Mes&lt;/th&gt;&lt;th scope="col"&gt;Ventas&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Enero&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;table&gt;\n  &lt;caption&gt;Ventas mensuales&lt;/caption&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Mes&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Ventas&lt;/th&gt;&lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;&lt;td&gt;Enero&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;">Copiar</button>
+        </div>
+
+        <h4>Resultado</h4>
+        <figure>
+          <svg width="640" height="120" viewBox="0 0 640 120" role="img" aria-label="Resultado tabla">
+            <rect width="640" height="120" rx="10" fill="#0b0a0c"/>
+            <text x="20" y="40" font-family="Inter, Arial" font-size="14" fill="#e6d9ff">Mes | Ventas</text>
+            <text x="20" y="72" font-family="Inter, Arial" font-size="14" fill="#e6d9ff">Enero | 100</text>
+          </svg>
+        </figure>
+
+        <p>Referencia: <a href="https://html.spec.whatwg.org/multipage/tables.html" target="_blank" rel="noopener">Tablas (HTML)</a></p>
+      </section>
+
+      <!-- Ejemplo 5: form -->
+      <section id="form" class="example">
+        <h3>Formulario — <code>&lt;form&gt;</code></h3>
+        <p class="meta">Uso: recopilar datos. Etiqueta inputs y utiliza tipos adecuados.</p>
+
+        <h4>Código</h4>
+        <pre><code class="code">&lt;form action="#" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre&lt;/label&gt;
+  &lt;input id="nombre" name="nombre" type="text" required placeholder="Tu nombre"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" required placeholder="tu@ejemplo.com"&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;\n  &lt;label for=&quot;nombre&quot;&gt;Nombre&lt;/label&gt;\n  &lt;input id=&quot;nombre&quot; name=&quot;nombre&quot; type=&quot;text&quot; required placeholder=&quot;Tu nombre&quot;&gt;\n  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;\n  &lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; required placeholder=&quot;tu@ejemplo.com&quot;&gt;\n  &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;\n&lt;/form&gt;">Copiar</button>
+        </div>
+
+        <h4>Resultado</h4>
+        <figure>
+          <svg width="640" height="96" viewBox="0 0 640 96" role="img" aria-label="Resultado formulario">
+            <rect width="640" height="96" rx="10" fill="#120912"/>
+            <text x="20" y="44" font-family="Inter, Arial" font-size="16" fill="#d7b2ff">[ Nombre input ] [ Email input ] [ Enviar ]</text>
+          </svg>
+        </figure>
+
+        <p>Referencia: <a href="https://html.spec.whatwg.org/multipage/forms.html" target="_blank" rel="noopener">Formularios (HTML)</a></p>
+      </section>
+
+      <footer class="article-foot">
+        <p><a href="#top">Volver arriba</a> — <a href="/index.html">Inicio</a></p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© Web4U — IES La Marisma</small>
+      <nav aria-label="Enlaces del pie">
+        <ul class="footer-nav">
+          <li><a href="/README.md">Instrucciones</a></li>
+          <li><a href="/pdfs/html.pdf">PDF (imprimir)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/scripts/toc.js"></script>
+</body>
+</html>

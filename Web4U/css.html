@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web4U — CSS: propiedades y layout</title>
+  <meta name="description" content="Ejemplos de CSS: display, flexbox, grid, position, transform y transiciones.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/index.html">Web4U</a>
+      <nav aria-label="Navegación del sitio">
+        <ul class="main-nav">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/html.html">HTML</a></li>
+          <li><a href="/svg.html">SVG</a></li>
+          <li><a href="/css.html" aria-current="page">CSS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <article>
+      <header>
+        <h1 id="top">CSS — propiedades y ejemplos visuales</h1>
+        <p class="lead">Propiedades frecuentes de CSS con ejemplos y representaciones visuales en SVG.</p>
+        <p><a class="btn" href="/pdf/css.pdf">Descargar PDF</a></p>
+      </header>
+
+      <nav id="toc" class="toc" aria-label="Tabla de contenidos">
+        <h2>Contenido</h2>
+        <ol>
+          <li><a href="#display">display</a></li>
+          <li><a href="#flex">Flexbox (display:flex)</a></li>
+          <li><a href="#grid">Grid (display:grid)</a></li>
+          <li><a href="#position">position</a></li>
+          <li><a href="#transform">transform & transition</a></li>
+        </ol>
+      </nav>
+
+      <section id="display" class="example">
+        <h3><code>display</code></h3>
+        <pre><code class="code">.bloque { display: block; }
+.inline { display: inline-block; }</code></pre>
+        <div class="code-actions"><button class="copy-btn" data-copy=".bloque { display: block; }\n.inline { display: inline-block; }">Copiar</button></div>
+
+        <figure>
+          <svg width="720" height="120" viewBox="0 0 720 120" role="img" aria-label="Ejemplo display">
+            <rect width="720" height="120" rx="12" fill="#0b0710" />
+            <rect x="18" y="24" width="220" height="72" rx="10" fill="#2d0e3d" />
+            <rect x="252" y="24" width="160" height="72" rx="10" fill="#3e1670" />
+            <rect x="432" y="24" width="160" height="72" rx="10" fill="#5b2aa6" />
+          </svg>
+        </figure>
+
+        <p>Referencia MDN: <a href="https://developer.mozilla.org/es/docs/Web/CSS/display" target="_blank" rel="noopener">display</a></p>
+      </section>
+
+      <section id="flex" class="example">
+        <h3><code>display: flex</code> — Flexbox</h3>
+        <pre><code class="code">.contenedor { display:flex; gap:12px; align-items:center; }
+.item { padding:8px; border-radius:8px; }</code></pre>
+        <div class="code-actions"><button class="copy-btn" data-copy=".contenedor { display:flex; gap:12px; align-items:center; }\n.item { padding:8px; border-radius:8px; }">Copiar</button></div>
+
+        <figure>
+          <svg width="720" height="140" viewBox="0 0 720 140" role="img" aria-label="Ejemplo flexbox">
+            <rect width="720" height="140" rx="12" fill="#110912" />
+            <rect x="20" y="20" width="200" height="100" rx="12" fill="#2d0e3d" />
+            <rect x="236" y="20" width="200" height="100" rx="12" fill="#3e1670" />
+            <rect x="452" y="20" width="200" height="100" rx="12" fill="#5b2aa6" />
+          </svg>
+          <figcaption>Contenedor flex con elementos alineados en fila.</figcaption>
+        </figure>
+
+        <p>Referencia MDN: <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" rel="noopener">Flexbox</a></p>
+      </section>
+
+      <section id="grid" class="example">
+        <h3><code>display: grid</code> — Grid</h3>
+        <pre><code class="code">.grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }</code></pre>
+        <div class="code-actions"><button class="copy-btn" data-copy=".grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }">Copiar</button></div>
+
+        <figure>
+          <svg width="720" height="220" viewBox="0 0 720 220" role="img" aria-label="Ejemplo grid">
+            <rect width="720" height="220" rx="12" fill="#0b0710" />
+            <rect x="18" y="18" width="340" height="88" rx="12" fill="#2d0e3d" />
+            <rect x="370" y="18" width="332" height="88" rx="12" fill="#3e1670" />
+            <rect x="18" y="118" width="340" height="84" rx="12" fill="#5b2aa6" />
+            <rect x="370" y="118" width="332" height="84" rx="12" fill="#7b53c9" />
+          </svg>
+        </figure>
+
+        <p>Referencia MDN: <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">Grid</a></p>
+      </section>
+
+      <section id="position" class="example">
+        <h3><code>position</code></h3>
+        <pre><code class="code">.rel { position: relative; }
+.badge { position: absolute; top:8px; right:8px; }</code></pre>
+        <div class="code-actions"><button class="copy-btn" data-copy=".rel { position: relative; }\n.badge { position: absolute; top:8px; right:8px; }">Copiar</button></div>
+
+        <figure>
+          <svg width="560" height="160" viewBox="0 0 560 160" role="img" aria-label="Ejemplo position">
+            <rect width="560" height="160" rx="12" fill="#120912" />
+            <rect x="20" y="20" width="520" height="120" rx="12" fill="#240f2a" />
+            <rect x="456" y="28" width="80" height="28" rx="12" fill="#ffd6ff" />
+          </svg>
+        </figure>
+
+        <p>Referencia MDN: <a href="https://developer.mozilla.org/es/docs/Web/CSS/position" target="_blank" rel="noopener">position</a></p>
+      </section>
+
+      <section id="transform" class="example">
+        <h3><code>transform</code> y <code>transition</code></h3>
+        <pre><code class="code">.tarjeta { transform: translateY(0); transition: transform .22s ease; }
+.tarjeta:hover { transform: translateY(-8px) scale(1.02); }</code></pre>
+        <div class="code-actions"><button class="copy-btn" data-copy=".tarjeta { transform: translateY(0); transition: transform .22s ease; }\n.tarjeta:hover { transform: translateY(-8px) scale(1.02); }">Copiar</button></div>
+
+        <figure>
+          <svg width="720" height="140" viewBox="0 0 720 140" role="img" aria-label="Ejemplo transform">
+            <rect width="720" height="140" rx="12" fill="#0b0710" />
+            <rect x="24" y="24" width="200" height="92" rx="12" fill="#2d0e3d" />
+            <rect x="260" y="24" width="200" height="92" rx="12" fill="#3e1670" />
+            <rect x="496" y="24" width="200" height="92" rx="12" fill="#5b2aa6" />
+          </svg>
+        </figure>
+
+        <p>Referencia MDN: <a href="https://developer.mozilla.org/es/docs/Web/CSS/transform" target="_blank" rel="noopener">transform</a> — <a href="https://developer.mozilla.org/es/docs/Web/CSS/transition" target="_blank" rel="noopener">transition</a></p>
+      </section>
+
+      <footer class="article-foot">
+        <p><a href="#top">Volver arriba</a> — <a href="/index.html">Inicio</a></p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© Web4U — IES La Marisma</small>
+      <nav aria-label="Enlaces del pie">
+        <ul class="footer-nav">
+          <li><a href="/README.md">Instrucciones</a></li>
+          <li><a href="/pdfs/css.pdf">PDF (imprimir)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/scripts/toc.js"></script>
+</body>
+</html>

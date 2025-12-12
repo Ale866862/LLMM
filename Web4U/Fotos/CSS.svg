@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <rect width="600" height="360" rx="20" fill="#0f0b0f"></rect>
+  <text x="300" y="150" text-anchor="middle" font-size="80" font-family="Inter, Arial" fill="#e9d8ff">CSS</text>
+  <text x="300" y="220" text-anchor="middle" font-size="18" font-family="Inter, Arial" fill="#c9b3e6">Diseño • Maquetación</text>
+</svg>

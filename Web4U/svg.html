@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web4U — SVG: formas y animación</title>
+  <meta name="description" content="Ejemplos de SVG: rect, circle, ellipse, path, text y animación simple.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/index.html">Web4U</a>
+      <nav aria-label="Navegación del sitio">
+        <ul class="main-nav">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/html.html">HTML</a></li>
+          <li><a href="/svg.html" aria-current="page">SVG</a></li>
+          <li><a href="/css.html">CSS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <article>
+      <header>
+        <h1 id="top">SVG — elementos y animación</h1>
+        <p class="lead">Demostramos varias características de SVG con ejemplos de código, uso y el resultado (que es una imagen SVG real).</p>
+        <p><a class="btn" href="/pdf/svg.pdf">Descargar PDF</a></p>
+      </header>
+
+      <nav id="toc" class="toc" aria-label="Tabla de contenidos">
+        <h2>Contenido</h2>
+        <ol>
+          <li><a href="#rect">&lt;rect&gt;</a></li>
+          <li><a href="#circle">&lt;circle&gt;</a></li>
+          <li><a href="#ellipse">&lt;ellipse&gt;</a></li>
+          <li><a href="#path">&lt;path&gt;</a></li>
+          <li><a href="#text">&lt;text&gt;</a></li>
+          <li><a href="#anim">Animación simple</a></li>
+        </ol>
+      </nav>
+
+      <section id="rect" class="example">
+        <h3>&lt;rect&gt; — rectángulo</h3>
+        <pre><code class="code">&lt;svg width="260" height="100"&gt;
+  &lt;rect x="8" y="8" width="244" height="84" rx="12" fill="#6a3fb5" /&gt;
+&lt;/svg&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;260&quot; height=&quot;100&quot;&gt;\n  &lt;rect x=&quot;8&quot; y=&quot;8&quot; width=&quot;244&quot; height=&quot;84&quot; rx=&quot;12&quot; fill=&quot;#6a3fb5&quot; /&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="300" height="120" viewBox="0 0 300 120" role="img" aria-label="Ejemplo rect">
+            <rect x="8" y="8" width="284" height="104" rx="12" fill="#6a3fb5" />
+          </svg>
+          <figcaption>Rectángulo con bordes redondeados.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/shapes.html#RectElement" target="_blank" rel="noopener">rect (SVG)</a></p>
+      </section>
+
+      <section id="circle" class="example">
+        <h3>&lt;circle&gt; — círculo</h3>
+        <pre><code class="code">&lt;svg width="140" height="140"&gt;
+  &lt;circle cx="70" cy="70" r="56" fill="#d9b3ff" stroke="#6a3fb5" stroke-width="4" /&gt;
+&lt;/svg&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;140&quot; height=&quot;140&quot;&gt;\n  &lt;circle cx=&quot;70&quot; cy=&quot;70&quot; r=&quot;56&quot; fill=&quot;#d9b3ff&quot; stroke=&quot;#6a3fb5&quot; stroke-width=&quot;4&quot; /&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="Ejemplo circle">
+            <circle cx="70" cy="70" r="56" fill="#d9b3ff" stroke="#6a3fb5" stroke-width="4" />
+          </svg>
+          <figcaption>Círculo con trazo.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/shapes.html#CircleElement" target="_blank" rel="noopener">circle (SVG)</a></p>
+      </section>
+
+      <section id="ellipse" class="example">
+        <h3>&lt;ellipse&gt; — elipse</h3>
+        <pre><code class="code">&lt;svg width="240" height="120"&gt;
+  &lt;ellipse cx="120" cy="60" rx="100" ry="36" fill="#c9a6ff" /&gt;
+&lt;/svg&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;240&quot; height=&quot;120&quot;&gt;\n  &lt;ellipse cx=&quot;120&quot; cy=&quot;60&quot; rx=&quot;100&quot; ry=&quot;36&quot; fill=&quot;#c9a6ff&quot; /&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="260" height="120" viewBox="0 0 260 120" role="img" aria-label="Ejemplo ellipse">
+            <ellipse cx="130" cy="60" rx="100" ry="36" fill="#c9a6ff" />
+          </svg>
+          <figcaption>Elipse ancha.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/shapes.html#EllipseElement" target="_blank" rel="noopener">ellipse (SVG)</a></p>
+      </section>
+
+      <section id="path" class="example">
+        <h3>&lt;path&gt; — trazado</h3>
+        <pre><code class="code">&lt;svg width="260" height="120"&gt;
+  &lt;path d="M20 80 C 80 10, 180 10, 240 80" fill="none" stroke="#e7d8ff" stroke-width="6" stroke-linecap="round" /&gt;
+&lt;/svg&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;260&quot; height=&quot;120&quot;&gt;\n  &lt;path d=&quot;M20 80 C 80 10, 180 10, 240 80&quot; fill=&quot;none&quot; stroke=&quot;#e7d8ff&quot; stroke-width=&quot;6&quot; stroke-linecap=&quot;round&quot; /&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="260" height="120" viewBox="0 0 260 120" role="img" aria-label="Ejemplo path">
+            <path d="M20 80 C 80 10, 180 10, 240 80" fill="none" stroke="#e7d8ff" stroke-width="6" stroke-linecap="round" />
+          </svg>
+          <figcaption>Curva trazada con <code>path</code>.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/paths.html#PathElement" target="_blank" rel="noopener">path (SVG)</a></p>
+      </section>
+
+      <section id="text" class="example">
+        <h3>&lt;text&gt; — texto en SVG</h3>
+        <pre><code class="code">&lt;svg width="420" height="80"&gt;
+  &lt;text x="10" y="40" font-size="28" font-family="Arial" fill="#fff"&gt;Texto SVG&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;420&quot; height=&quot;80&quot;&gt;\n  &lt;text x=&quot;10&quot; y=&quot;40&quot; font-size=&quot;28&quot; font-family=&quot;Arial&quot; fill=&quot;#fff&quot;&gt;Texto SVG&lt;/text&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="420" height="80" viewBox="0 0 420 80" role="img" aria-label="Ejemplo text">
+            <rect width="420" height="80" rx="10" fill="#1a0f1e" />
+            <text x="18" y="48" font-size="28" font-family="Inter, Arial" fill="#f6e9ff">Texto SVG</text>
+          </svg>
+          <figcaption>Texto renderizado en SVG.</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/text.html#TextElement" target="_blank" rel="noopener">text (SVG)</a></p>
+      </section>
+
+      <section id="anim" class="example">
+        <h3>Animación simple (transform)</h3>
+        <p class="meta">Usamos una animación CSS aplicada a un grupo (<code>&lt;g&gt;</code>) dentro del SVG para rotación continua.</p>
+
+        <pre><code class="code">&lt;svg width="260" height="120" class="anim-svg"&gt;
+  &lt;g class="spin" transform-origin="130px 60px"&gt;
+    &lt;circle cx="130" cy="60" r="36" fill="#b89dff" /&gt;
+    &lt;rect x="120" y="36" width="20" height="12" fill="#6a3fb5" rx="3" /&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+
+/* styles.css: .anim-svg .spin { animation: spin 8s linear infinite; } */
+</code></pre>
+        <div class="code-actions">
+          <button class="copy-btn" data-copy="&lt;svg width=&quot;260&quot; height=&quot;120&quot; class=&quot;anim-svg&quot;&gt;\n  &lt;g class=&quot;spin&quot; transform-origin=&quot;130px 60px&quot;&gt;\n    &lt;circle cx=&quot;130&quot; cy=&quot;60&quot; r=&quot;36&quot; fill=&quot;#b89dff&quot; /&gt;\n    &lt;rect x=&quot;120&quot; y=&quot;36&quot; width=&quot;20&quot; height=&quot;12&quot; fill=&quot;#6a3fb5&quot; rx=&quot;3&quot; /&gt;\n  &lt;/g&gt;\n&lt;/svg&gt;">Copiar</button>
+        </div>
+
+        <figure>
+          <svg width="260" height="120" viewBox="0 0 260 120" class="anim-svg" role="img" aria-label="Ejemplo animación">
+            <g class="spin" transform-origin="130px 60px">
+              <circle cx="130" cy="60" r="36" fill="#b89dff" />
+              <rect x="120" y="36" width="20" height="12" fill="#6a3fb5" rx="3" />
+            </g>
+          </svg>
+          <figcaption>Animación simple (rotación).</figcaption>
+        </figure>
+
+        <p>Referencia: <a href="https://www.w3.org/TR/SVG2/animations.html" target="_blank" rel="noopener">Animaciones SVG</a></p>
+      </section>
+
+      <footer class="article-foot">
+        <p><a href="#top">Volver arriba</a> — <a href="/index.html">Inicio</a></p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© Web4U — IES La Marisma</small>
+      <nav aria-label="Enlaces del pie">
+        <ul class="footer-nav">
+          <li><a href="/README.md">Instrucciones</a></li>
+          <li><a href="/pdfs/svg.pdf">PDF (imprimir)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/scripts/toc.js"></script>
+</body>
+</html>

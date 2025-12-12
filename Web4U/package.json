@@ -1,0 +1,12 @@
+{
+  "name": "web4u",
+  "version": "1.0.0",
+  "description": "Web4U — HTML, SVG y CSS (IES La Marisma)",
+  "scripts": {
+    "start": "http-server -p 8080",
+    "pdfs": "node scripts/generate_pdfs.js"
+  },
+  "dependencies": {
+    "puppeteer": "^20.0.0"
+  }
+}

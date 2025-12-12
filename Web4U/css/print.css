@@ -1,0 +1,10 @@
+/* print.css — reglas para generar PDFs limpios */
+@page { size: A4; margin: 18mm; }
+body { color: #000; background: #fff; font-family: Arial, sans-serif; }
+.site-header, .site-footer, .thumb-grid, .copy-btn, .hero-visual, .cards { display: none !important; }
+.container { max-width: 720px; margin: 0 auto; padding: 0; }
+.content { padding: 0; background: transparent; border-radius: 0; }
+pre { background: #f7f7f7; color: #111; border: 1px solid #ddd; padding: 10px; }
+.toc { page-break-after: avoid; }
+a::after { content: " (" attr(href) ")"; font-size: 10px; color: #444; }
+figcaption { color: #333; font-size: 12px; }
