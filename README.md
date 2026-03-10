@@ -16,7 +16,7 @@
 | 1    |    7      | [Texto de Enlace](Ejercicio7.html) |
 | 1    |    8      | [Texto de Enlace](Ejercicio8.html) |
 | 1    |    9      | [Texto de Enlace](Ejercicio9.html/Ejercicio9.html) |
-| 1    |    10      | [Texto de Enlace](Ejercicio10.html) |
+| 1    |    10     | [Texto de Enlace](Ejercicio10.html) |
 | 1    |    11     | [Texto de Enlace](Ejercicio11.html) |
 | 1    |    12     | [Texto de Enlace](Ejercicio12.html) |
 | 1    |    13     | [Texto de Enlace](Ejercicio13.html) |
