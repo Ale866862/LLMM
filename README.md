@@ -47,4 +47,4 @@
 
 | Trimestre | | Nombre | | Enlace |
 | --------- | | ------ | | ------ |
-|  1        | | Web4U  | | [Texto de Enlace](https://ale866862.github.io/LLMM/ProyectoBoostrap/index.html) |
+|  1        | | Web4U  | | [Texto de Enlace](https://ale866862.github.io/LLMM/Web4U/index.html) |
