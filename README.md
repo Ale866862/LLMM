@@ -60,11 +60,11 @@
 | [Ejercicio 10](DOM/ejercicio10.html) | Actividades DOM |
 
 
-## Trabajo Segundo Trimestre
+## Práctica Boostrap
 
 | Actividad | descripción |
 | --- | --- |
-| [Mi sitio web](Mi-sitio-web) | Actividades del segundo trimestre|
+| [Mi sitio web](https://ale866862.github.io/LLMM/ProyectoBoostrap/index.html) | Actividades del segundo trimestre|
 
 
 ## Tema 2 - LMSGI_03_Actividades
