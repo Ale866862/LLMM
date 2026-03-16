@@ -37,14 +37,14 @@
 | [Ejercicio 30](Ejercicio30.html) |  |
 
 
-## Actividad Final
+## Trabajo Primer Trimestre
 
 | Actividad | descripción |
 | --- | --- |
 | [Práctica Web4U](https://ale866862.github.io/LLMM/ProyectoBoostrap/index.html) | Actividad final|
 
 
-## Trabajo segundo trimestre
+## Trabajo Segundo Trimestre
 
 | Actividad | descripción |
 | --- | --- |
