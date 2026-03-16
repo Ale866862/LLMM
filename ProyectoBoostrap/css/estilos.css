@@ -1,0 +1,121 @@
+body{
+background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:rgba(0,0,0,0.8) !important;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+/* TITULO */
+
+.titulo{
+color:#b983ff;
+animation: aparecer 2s ease-in;
+}
+
+@keyframes aparecer{
+
+from{
+opacity:0;
+transform:translateY(-40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* TARJETAS */
+
+.card{
+background:#1e1e2f;
+color:white;
+border:none;
+transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0px 10px 25px rgba(185,131,255,0.5);
+}
+
+/* GALERIA */
+
+.imagen{
+transition: transform 0.6s, filter 0.6s;
+}
+
+.imagen:hover{
+transform:scale(1.15);
+filter:brightness(1.2);
+}
+
+/* TABLAS */
+
+table{
+background:#1e1e2f;
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+background:#0a0a0a;
+color:#b983ff;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+
+/* BOTON ARRIBA */
+
+#arriba{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#b983ff;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+animation: flotar 2s infinite;
+}
+
+#arriba:hover{
+background:#8a4fff;
+}
+
+@keyframes flotar{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0);}
+
+}
+
+/* CONTADOR */
+
+.contador{
+font-size:40px;
+color:#b983ff;
+font-weight:bold;
+}
+
+/* SEPARADOR */
+
+.separador{
+border:0;
+height:3px;
+background:linear-gradient(90deg,#b983ff,#6f42c1);
+margin:40px 0;
+}
