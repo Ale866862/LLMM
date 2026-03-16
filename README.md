@@ -41,7 +41,14 @@
 
 | Actividad | descripción |
 | --- | --- |
-| [Práctica Web4U](WebU4) | Actividad final|
+| [Práctica Web4U](https://ale866862.github.io/LLMM/ProyectoBoostrap/index.html) | Actividad final|
+
+
+## Trabajo segundo trimestre
+
+| Actividad | descripción |
+| --- | --- |
+| [Mi sitio web](Mi-sitio-web) | Actividades del segundo trimestre|
 
 
 ## Tema 2 - LMSGI_03_Actividades
@@ -106,8 +113,4 @@
 | [Ejercicio 6](AdvancedJava/ejercicio6.html) | Actividades AdvancedJava |
 
 
-## Trabajo segundo trimestre
 
-| Actividad | descripción |
-| --- | --- |
-| [Mi sitio web](Mi-sitio-web) | Actividades del segundo trimestre|
