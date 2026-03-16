@@ -60,6 +60,34 @@
 | [Ejercicio 10](DOM/ejercicio10.html) | Actividades DOM |
 
 
+## Tema 3 - JAVASCRIPT
+
+| Actividad | descripción |
+| --- | --- |
+| [Ejercicio 1](JavaScript/Ejercicio1.html) | Actividades JavaScript|
+| [Ejercicio 2](JavaScript/Ejercicio2.html) | Actividades JavaScript|
+| [Ejercicio 3](JavaScript/Ejercicio3.html) | Actividades JavaScript|
+| [Ejercicio 4](JavaScript/Ejercicio4.html) | Actividades JavaScript|
+| [Ejercicio 5](JavaScript/Ejercicio5.html) | Actividades JavaScript|
+| [Ejercicio 6](JavaScript/Ejercicio6.html) | Actividades JavaScript|
+| [Ejercicio 7](JavaScript/Ejercicio7.html) | Actividades JavaScript|
+| [Ejercicio 8](JavaScript/Ejercicio8.html) | Actividades JavaScript|
+| [Ejercicio 9](JavaScript/Ejercicio9.html) | Actividades JavaScript|
+| [Ejercicio 10](JavaScript/Ejercicio10.html) | Actividades JavaScript|
+
+
+## Tema 3 - AdvancedJava
+
+| Actividad | descripción |
+| --- | --- |
+| [Ejercicio 1](AdvancedJS/Ejercicio1.html) | Actividades AdvancedJava |
+| [Ejercicio 2](AdvancedJS/Ejercicio2.html) | Actividades AdvancedJava |
+| [Ejercicio 3](AdvancedJS/Ejercicio3.html) | Actividades AdvancedJava |
+| [Ejercicio 4](AdvancedJS/Ejercicio4.html) | Actividades AdvancedJava |
+| [Ejercicio 5](AdvancedJS/Ejercicio5.html) | Actividades AdvancedJava |
+| [Ejercicio 6](AdvancedJS/Ejercicio6.html) | Actividades AdvancedJava |
+
+
 ## Práctica Boostrap
 
 | Actividad | descripción |
@@ -82,39 +110,6 @@
 | [Ejercicio 12](CSS/Ejercicio12.html) | Actividades de CSS.|
 
 
-## Actividad Final
-
-| Actividad | descripción |
-| --- | --- |
-| [Actividad final](WebU4) | Actividad final|
-
-## Tema 3 - JAVASCRIPT
-
-| Actividad | descripción |
-| --- | --- |
-| [Ejercicio 1](Javascript/Ejercicio1) | Actividades JavaScript|
-| [Ejercicio 2](Javascript/Ejercicio2) | Actividades JavaScript|
-| [Ejercicio 3](Javascript/Ejercicio3) | Actividades JavaScript|
-| [Ejercicio 4](Javascript/Ejercicio4) | Actividades JavaScript|
-| [Ejercicio 5](Javascript/Ejercicio5) | Actividades JavaScript|
-| [Ejercicio 6](Javascript/Ejercicio6) | Actividades JavaScript|
-| [Ejercicio 7](Javascript/Ejercicio7) | Actividades JavaScript|
-| [Ejercicio 8](Javascript/Ejercicio8) | Actividades JavaScript|
-| [Ejercicio 9](Javascript/Ejercicio9) | Actividades JavaScript|
-| [Ejercicio 10](Javascript/Ejercicio10) | Actividades JavaScript|
-
-
-
-## Tema 3 - AdvancedJava
-
-| Actividad | descripción |
-| --- | --- |
-| [Ejercicio 1](AdvancedJava/Ejercicio1) | Actividades AdvancedJava |
-| [Ejercicio 2](AdvancedJava/ejercicio2.html) | Actividades AdvancedJava |
-| [Ejercicio 3](AdvancedJava/Ejercicio3) | Actividades AdvancedJava |
-| [Ejercicio 4](AdvancedJava/ejercicio4.html) | Actividades AdvancedJava |
-| [Ejercicio 5](AdvancedJava/ejercicio5.html) | Actividades AdvancedJava |
-| [Ejercicio 6](AdvancedJava/ejercicio6.html) | Actividades AdvancedJava |
 
 
 
