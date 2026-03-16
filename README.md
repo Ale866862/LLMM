@@ -43,16 +43,16 @@
 
 | Actividad | descripción |
 | --- | --- |
-| [Ejercicio 1](DOM/ejercicio1.html) | Actividades DOM |
+| [Ejercicio 1](DOM/Ejercicio1.html) | Actividades DOM |
 | [Ejercicio 2](DOM/Ejercicio2.html) | Actividades DOM |
-| [Ejercicio 3](DOM/ejercicio3.html) | Actividades DOM |
-| [Ejercicio 4](DOM/ejercicio4.html) | Actividades DOM |
-| [Ejercicio 5](DOM/ejercicio5.html) | Actividades DOM |
-| [Ejercicio 6](DOM/ejercicio6.html) | Actividades DOM |
-| [Ejercicio 7](DOM/ejercicio7.html) | Actividades DOM |
-| [Ejercicio 8](DOM/ejercicio8.html) | Actividades DOM |
-| [Ejercicio 9](DOM/ejercicio9.html) | Actividades DOM |
-| [Ejercicio 10](DOM/ejercicio10.html) | Actividades DOM |
+| [Ejercicio 3](DOM/Ejercicio3.html) | Actividades DOM |
+| [Ejercicio 4](DOM/Ejercicio4.html) | Actividades DOM |
+| [Ejercicio 5](DOM/Ejercicio5.html) | Actividades DOM |
+| [Ejercicio 6](DOM/Ejercicio6.html) | Actividades DOM |
+| [Ejercicio 7](DOM/Ejercicio7.html) | Actividades DOM |
+| [Ejercicio 8](DOM/Ejercicio8.html) | Actividades DOM |
+| [Ejercicio 9](DOM/Ejercicio9.html) | Actividades DOM |
+| [Ejercicio 10](DOM/Ejercicio10.html) | Actividades DOM |
 
 
 ## Tema 3 - JAVASCRIPT
