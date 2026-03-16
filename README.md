@@ -15,7 +15,7 @@
 | [Ejercicio 8](Ejercicio8.html) | Ejercicio con enlaces |
 | [Ejercicio 9](Ejercicio9.html/Ejercicio9.html) | Crea un página html como la mostrada |
 | [Ejercicio 10](Ejercicio10.html) | Escriba una página HTML con la siguiente lista anidada de dos niveles |
-| [Ejercicio 11](Ejercicio11.html) | Añadimos listas |
+| [Ejercicio 11](Ejercicio_11.html) | Añadimos listas |
 | [Ejercicio 12](Ejercicio12.html) | Añadimos html styles |
 | [Ejercicio 13](Ejercicio13.html) | Añadimos html borders |
 | [Ejercicio 14](Ejercicio14.html) | Añadimos margin y padding |
