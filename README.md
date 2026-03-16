@@ -30,11 +30,6 @@
 | [Ejercicio 23](Ejercicio23.html) | Añadimos  iFrame |
 | [Ejercicio 24](Ejercicio24.html) | Añadimos formularios |
 | [Ejercicio 25](Ejercicio25.html) | Añadimos formularios |
-| [Ejercicio 26](Ejercicio26/Ejercicio26.html) | Añadimos formularios |
-| [Ejercicio 27](Ejercicio27/Ejercicio27.html) | Creamos una página con un fichero de sonido |
-| [Ejercicio 28](/Ejercicio28.html) | Creamos una página con un video incrustado de Youtube |
-| [Ejercicio 29](Ejercicio29.html) |  |
-| [Ejercicio 30](Ejercicio30.html) |  |
 
 
 ## Trabajo Primer Trimestre
