@@ -44,6 +44,22 @@
 | [Práctica Web4U](https://ale866862.github.io/LLMM/ProyectoBoostrap/index.html) | Actividad final|
 
 
+## Tema 3 - DOM
+
+| Actividad | descripción |
+| --- | --- |
+| [Ejercicio 1](DOM/ejercicio1.html) | Actividades DOM |
+| [Ejercicio 2](DOM/Ejercicio2.html) | Actividades DOM |
+| [Ejercicio 3](DOM/ejercicio3.html) | Actividades DOM |
+| [Ejercicio 4](DOM/ejercicio4.html) | Actividades DOM |
+| [Ejercicio 5](DOM/ejercicio5.html) | Actividades DOM |
+| [Ejercicio 6](DOM/ejercicio6.html) | Actividades DOM |
+| [Ejercicio 7](DOM/ejercicio7.html) | Actividades DOM |
+| [Ejercicio 8](DOM/ejercicio8.html) | Actividades DOM |
+| [Ejercicio 9](DOM/ejercicio9.html) | Actividades DOM |
+| [Ejercicio 10](DOM/ejercicio10.html) | Actividades DOM |
+
+
 ## Trabajo Segundo Trimestre
 
 | Actividad | descripción |
@@ -55,7 +71,7 @@
 
 | Ejercicios | descripción |
 | --- | --- |
-| [Ejercicio 1](CSS/Ejercicio1) | Actividades de CSS.|
+| [Ejercicio 1](DOM/Ejercicio1.h) | Actividades de CSS.|
 | [Ejercicio 2](CSS/Ejercicio2) | Actividades de CSS.|
 | [Ejercicio 3](CSS/Ejercicio3) | Actividades de CSS.|
 | [Ejercicio 4](CSS/Ejercicio4.html) | Actividades de CSS.|
@@ -87,19 +103,7 @@
 | [Ejercicio 9](Javascript/Ejercicio9) | Actividades JavaScript|
 | [Ejercicio 10](Javascript/Ejercicio10) | Actividades JavaScript|
 
-## Tema 3 - DOM
 
-| Actividad | descripción |
-| --- | --- |
-| [Ejercicio 1](DOM/ejercicio1.html) | Actividades DOM |
-| [Ejercicio 2](DOM/Ejercicio2) | Actividades DOM |
-| [Ejercicio 3](DOM/ejercicio3.html) | Actividades DOM |
-| [Ejercicio 4](DOM/ejercicio4.html) | Actividades DOM |
-| [Ejercicio 5](DOM/ejercicio5.html) | Actividades DOM |
-| [Ejercicio 6](DOM/ejercicio6.html) | Actividades DOM |
-| [Ejercicio 7](DOM/ejercicio7.html) | Actividades DOM |
-| [Ejercicio 8](DOM/ejercicio8.html) | Actividades DOM |
-| [Ejercicio 9](DOM/ejercicio9.html) | Actividades DOM |
 
 ## Tema 3 - AdvancedJava
 
