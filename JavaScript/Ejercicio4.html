@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exercise 4 - Variables</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background: rgba(0,0,0,0.6);
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    width:350px;
+    box-shadow:0 0 20px rgba(150,0,255,0.6);
+}
+
+h1{
+    color:#c084fc;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    margin:10px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#9333ea;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#7e22ce;
+}
+
+#demo{
+    margin-top:20px;
+    font-size:20px;
+    opacity:0;
+    transition:0.6s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(-5px);
+}
+</style>
+
+<script>
+function showData(){
+
+    // Variables from inputs
+    var name = document.getElementById("name").value;
+    var age = document.getElementById("age").value;
+
+    // Another variable calculation
+    var nextAge = Number(age) + 1;
+
+    // Display result
+    var result = "Hello " + name + "!<br>";
+    result += "You are " + age + " years old.<br>";
+    result += "Next year you will be " + nextAge + " years old.";
+
+    var demo = document.getElementById("demo");
+    demo.innerHTML = result;
+    demo.classList.add("show");
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Working with Variables</h1>
+
+<p>Enter your name:</p>
+<input type="text" id="name" placeholder="Your name">
+
+<p>Enter your age:</p>
+<input type="number" id="age" placeholder="Your age">
+
+<br>
+
+<button onclick="showData()">Show Data</button>
+
+<p id="demo"></p>
+
+</div>
+
+</body>
+</html>

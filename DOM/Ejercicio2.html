@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro | Estilo Moderno</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --light-purple: #a855f7;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .form-card {
+            background: #0f0f0f;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 30px rgba(106, 13, 173, 0.2);
+            width: 350px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        h2 { color: var(--light-purple); margin-bottom: 20px; text-align: center; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            outline: none;
+        }
+
+        input:focus { border-color: var(--neon-purple); }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--neon-purple);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover { background: var(--light-purple); box-shadow: 0 0 15px var(--light-purple); }
+
+        #mensaje {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(106, 13, 173, 0.1);
+            color: #d1d1d1;
+            text-align: center;
+            display: none; /* Oculto inicialmente */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-card">
+        <h2>Registro</h2>
+        <form id="miFormulario">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellidos" placeholder="Apellidos" required>
+            <button type="button" onclick="procesarFormulario()">Enviar datos</button>
+        </form>
+
+        <div id="mensaje"></div>
+    </div>
+
+    <script>
+        function procesarFormulario() {
+            // Acceso a los valores de los inputs mediante el DOM
+            const nombre = document.getElementById("nombre").value;
+            const apellidos = document.getElementById("apellidos").value;
+            const contenedorMensaje = document.getElementById("mensaje");
+
+            if (nombre && apellidos) {
+                // Modificamos el contenido y hacemos visible el div
+                contenedorMensaje.innerHTML = `Hola <strong>${nombre} ${apellidos}</strong>, gracias por completar el formulario.`;
+                contenedorMensaje.style.display = "block";
+                contenedorMensaje.style.border = "1px solid #6a0dad";
+            } else {
+                alert("Por favor, rellena todos los campos.");
+            }
+        }
+    </script>
+</body>
+</html>

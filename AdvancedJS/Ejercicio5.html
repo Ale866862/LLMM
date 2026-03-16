@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Memoria Chino | Ejercicio 5</title>
+    <style>
+        :root { --neon-purple: #6a0dad; --dark-bg: #050505; }
+        body { background: var(--dark-bg); color: white; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+        
+        #tablero { display: grid; grid-template-columns: repeat(4, 100px); gap: 15px; margin-top: 20px; }
+        
+        .carta { 
+            width: 100px; height: 100px; background: var(--neon-purple); border-radius: 10px;
+            display: flex; justify-content: center; align-items: center; font-size: 2rem;
+            cursor: pointer; transform-style: preserve-3d; transition: transform 0.6s;
+        }
+        .carta.flipped { transform: rotateY(180deg); background: #333; }
+        .carta.matched { background: #004d00; cursor: default; }
+        
+        #contador { font-size: 1.5rem; margin-top: 20px; color: var(--neon-purple); }
+    </style>
+</head>
+<body>
+
+    <h1>Juego de Memoria Chino</h1>
+    <div id="contador">Tiempo: 0s</div>
+    <div id="tablero"></div>
+
+    <script>
+        // 4 palabras chinas: Sol, Luna, Agua, Fuego
+        const palabras = ['日', '月', '水', '火'];
+        let cartas = [...palabras, ...palabras].sort(() => Math.random() - 0.5);
+        let flipped = [], matchedCount = 0, tiempo = 0;
+
+        const tablero = document.getElementById('tablero');
+        
+        // Iniciar temporizador
+        setInterval(() => { tiempo++; document.getElementById('contador').innerText = `Tiempo: ${tiempo}s`; }, 1000);
+
+        cartas.forEach((p, i) => {
+            const div = document.createElement('div');
+            div.className = 'carta';
+            div.dataset.valor = p;
+            div.onclick = () => girarCarta(div);
+            tablero.appendChild(div);
+        });
+
+        function girarCarta(carta) {
+            if (flipped.length < 2 && !carta.classList.contains('flipped')) {
+                carta.classList.add('flipped');
+                carta.innerText = carta.dataset.valor;
+                flipped.push(carta);
+
+                if (flipped.length === 2) {
+                    comparar();
+                }
+            }
+        }
+
+        function comparar() {
+            const [c1, c2] = flipped;
+            if (c1.dataset.valor === c2.dataset.valor) {
+                c1.classList.add('matched'); c2.classList.add('matched');
+                matchedCount += 2;
+                flipped = [];
+                if (matchedCount === 8) alert("¡Ganaste en " + tiempo + " segundos!");
+            } else {
+                setTimeout(() => {
+                    c1.classList.remove('flipped'); c1.innerText = '';
+                    c2.classList.remove('flipped'); c2.innerText = '';
+                    flipped = [];
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 5 - Button Groups</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#1a001f,#4b0082);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            transition: all 0.5s;
+        }
+
+        h1 {
+            animation: fadeIn 1.5s;
+        }
+
+        .group {
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 0 20px rgba(138,43,226,0.5);
+            transition: transform 0.3s;
+        }
+
+        .group:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background-color: #8a2be2;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #8a2be2;
+        }
+
+        p#textPara {
+            font-size: 18px;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            background: rgba(255,255,255,0.05);
+        }
+
+        img#imgChange {
+            margin-top: 15px;
+            height: 200px;
+            border-radius: 10px;
+            transition: transform 0.4s;
+        }
+
+        img#imgChange:hover {
+            transform: scale(1.05);
+        }
+
+        div#messageBox {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(138,43,226,0.2);
+            font-size: 16px;
+            min-height: 40px;
+            transition: all 0.4s;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(-20px);}
+            to{opacity:1; transform:translateY(0);}
+        }
+    </style>
+
+    <script>
+        // Grupo A: Cambiar estilo de párrafo
+        function changeFont(font) {
+            document.getElementById("textPara").style.fontFamily = font;
+        }
+
+        // Grupo B: Cambiar imagen
+        function changeImage(src) {
+            let img = document.getElementById("imgChange");
+            img.src = src;
+            img.style.transform = "scale(1.2)";
+            setTimeout(() => img.style.transform = "scale(1)", 300);
+        }
+
+        // Grupo C: Mostrar mensajes
+        function showMessage(msg) {
+            let box = document.getElementById("messageBox");
+            box.innerHTML = msg;
+            box.style.backgroundColor = "rgba(138,43,226,0.5)";
+            setTimeout(() => box.style.backgroundColor = "rgba(138,43,226,0.2)", 500);
+        }
+    </script>
+</head>
+
+<body>
+
+<h1>Exercise 5 - Button Groups</h1>
+
+<!-- Grupo A: Cambiar estilo de párrafo -->
+<div class="group">
+    <h2>Change Paragraph Style</h2>
+    <button onclick="changeFont('Arial, sans-serif')">Arial</button>
+    <button onclick="changeFont('Georgia, serif')">Georgia</button>
+    <button onclick="changeFont('Courier New, monospace')">Courier</button>
+    <p id="textPara">This is a paragraph. Choose a font style!</p>
+</div>
+
+<!-- Grupo B: Cambiar imagen -->
+<div class="group">
+    <h2>Change Image</h2>
+    <button onclick="changeImage('car1.jpg')">Car 1</button>
+    <button onclick="changeImage('car2.jpg')">Car 2</button>
+    <button onclick="changeImage('car3.jpg')">Car 3</button>
+    <br>
+    <img id="imgChange" src="car1.jpg">
+</div>
+
+<!-- Grupo C: Mostrar mensajes -->
+<div class="group">
+    <h2>Show Messages</h2>
+    <button onclick="showMessage('Alejandro Ojeda se merece un 10')">Message 1</button>
+    <button onclick="showMessage('Bienvenido a mi página!')">Message 2</button>
+    <button onclick="showMessage('Que tengas un buen día!')">Message 3</button>
+    <div id="messageBox"></div>
+</div>
+
+</body>
+</html>

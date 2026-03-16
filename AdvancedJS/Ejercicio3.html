@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selector de Temas Instantáneo</title>
+    <style id="estilo-dinamico">
+        /* Estilo por defecto (Tema Morado) */
+        #container { background: #0f0f0f; color: #a855f7; border: 2px solid #6a0dad; }
+    </style>
+</head>
+<body>
+
+    <div class="selector-box" style="text-align: center; margin-bottom: 20px;">
+        <label>Elige tu tema:</label>
+        <select id="estilo-selector" onchange="cambiarTema()">
+            <option value="morado">Tema Morado Neón</option>
+            <option value="contraste">Tema Alto Contraste (Blanco/Negro)</option>
+            <option value="minimalista">Tema Minimalista (Azul/Gris)</option>
+        </select>
+    </div>
+
+    <div id="container">
+        <div id="header"><h1>Título Principal</h1></div>
+        <div id="menu"><b>Menú</b><br>HTML<br>CSS<br>JS</div>
+        <div id="content">Este contenido cambiará su apariencia al instante.</div>
+        <div id="footer">Copyright © 2026</div>
+    </div>
+
+    <script>
+        function cambiarTema() {
+            const selector = document.getElementById("estilo-selector").value;
+            const estilo = document.getElementById("estilo-dinamico");
+
+            if (selector === "morado") {
+                estilo.innerHTML = "#container { background: #0f0f0f; color: #a855f7; border: 2px solid #6a0dad; }";
+            } else if (selector === "contraste") {
+                estilo.innerHTML = "#container { background: #000; color: #fff; border: 2px solid #fff; }";
+            } else if (selector === "minimalista") {
+                estilo.innerHTML = "#container { background: #f0f0f0; color: #333; border: 2px solid #333; }";
+            }
+        }
+    </script>
+</body>
+</html>

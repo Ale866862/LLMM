@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estilos Dinámicos | Ejercicio 2</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+
+        /* Panel de controles */
+        .controls {
+            background: #0f0f0f;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--neon-purple);
+            width: 300px;
+        }
+
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; color: #a855f7; }
+
+        /* Área de visualización fija */
+        #visualizador {
+            width: 400px;
+            height: 300px;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Editor de Estilos en Tiempo Real</h1>
+
+    <div class="main-container">
+        <div class="controls">
+            <div class="control-group">
+                <label>Color de fondo:</label>
+                <input type="color" id="bgColor" onchange="actualizarEstilos()">
+            </div>
+            <div class="control-group">
+                <label>Color del texto:</label>
+                <input type="color" id="textColor" onchange="actualizarEstilos()">
+            </div>
+            <div class="control-group">
+                <label>Tamaño de fuente (px):</label>
+                <input type="range" id="fontSize" min="12" max="72" value="20" onchange="actualizarEstilos()">
+            </div>
+        </div>
+
+        <div id="visualizador">
+            <p id="texto-demo">¡Cambia mis estilos usando el panel izquierdo!</p>
+        </div>
+    </div>
+
+    <script>
+        function actualizarEstilos() {
+            const visualizador = document.getElementById("visualizador");
+            const texto = document.getElementById("texto-demo");
+            
+            // Captura de valores de los inputs
+            const bgColor = document.getElementById("bgColor").value;
+            const textColor = document.getElementById("textColor").value;
+            const fontSize = document.getElementById("fontSize").value;
+
+            // Aplicación de estilos dinámicos
+            visualizador.style.backgroundColor = bgColor;
+            texto.style.color = textColor;
+            texto.style.fontSize = fontSize + "px";
+        }
+    </script>
+</body>
+</html>

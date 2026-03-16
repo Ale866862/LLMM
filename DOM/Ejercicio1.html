@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso al DOM | Ejercicio 1</title>
+    <style>
+        body { background-color: #050505; color: white; font-family: sans-serif; padding: 40px; }
+        
+        .caja-ejemplo { 
+            background: #0f0f0f; 
+            padding: 20px; 
+            border: 1px solid #6a0dad; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+        }
+
+        .texto-contenido { color: #a855f7; font-weight: bold; }
+
+        #destino-div { 
+            padding: 20px; 
+            background: #1a1a1a; 
+            border: 1px dashed #6a0dad; 
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button { 
+            background: #6a0dad; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #a855f7; }
+    </style>
+</head>
+<body>
+
+    <h1>Acceso al DOM</h1>
+    
+    <div class="caja-ejemplo">
+        <p class="mi-clase">Este es el párrafo número uno.</p>
+        <p class="mi-clase">Este es el párrafo número dos.</p>
+        <p class="mi-clase">Este es el párrafo número tres.</p>
+    </div>
+
+    <button onclick="mostrarContenido()">Mostrar párrafos en el Div</button>
+
+    <h3>Contenido extraído:</h3>
+    <div id="destino-div">Aquí aparecerá el contenido...</div>
+
+    <script>
+        function mostrarContenido() {
+            // Accedemos a los elementos por su nombre de clase
+            const parrafos = document.getElementsByClassName("mi-clase");
+            const divDestino = document.getElementById("destino-div");
+            
+            // Limpiamos el div antes de escribir
+            divDestino.innerHTML = "";
+
+            // Usamos un bucle para recorrer la HTMLCollection
+            for (let i = 0; i < parrafos.length; i++) {
+                // Creamos un nuevo elemento o simplemente concatenamos el texto
+                divDestino.innerHTML += `<p class="texto-contenido">Párrafo ${i+1}: ${parrafos[i].innerHTML}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

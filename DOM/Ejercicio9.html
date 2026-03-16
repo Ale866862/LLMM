@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Control de Tiempo: setTimeout y clearTimeout</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: #0f0f0f;
+            border: 1px solid var(--neon-purple);
+            border-radius: 20px;
+            width: 350px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-start { background: var(--neon-purple); }
+        .btn-stop { background: #4a0000; }
+        
+        button:hover { filter: brightness(1.2); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Control de Alerta</h2>
+        <p id="estado">Esperando instrucción...</p>
+        
+        <button class="btn-start" onclick="iniciarAlerta()">Iniciar Temporizador</button>
+        <button class="btn-stop" onclick="detenerAlerta()">Detener Alerta</button>
+    </div>
+
+    <script>
+        let temporizador; // Variable global para guardar el ID del timeout
+
+        function iniciarAlerta() {
+            document.getElementById("estado").innerText = "El mensaje aparecerá en 5 segundos...";
+            
+            // Guardamos el ID del timeout en la variable
+            temporizador = setTimeout(function() {
+                alert("¡Hola! Han transcurrido 5 segundos.");
+                document.getElementById("estado").innerText = "Alerta ejecutada.";
+            }, 5000);
+        }
+
+        function detenerAlerta() {
+            // Usamos el ID guardado para cancelar la ejecución
+            clearTimeout(temporizador);
+            document.getElementById("estado").innerText = "¡Alerta cancelada con éxito!";
+        }
+    </script>
+</body>
+</html>

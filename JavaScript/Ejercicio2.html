@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exercise 2 - Showing Messages</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+    color:white;
+}
+
+.container{
+    text-align:center;
+    background: rgba(255,255,255,0.1);
+    padding:40px;
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#00e5ff;
+    color:#222;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#00c4d6;
+}
+
+#demo{
+    margin-top:20px;
+    font-size:22px;
+    opacity:0;
+    transition:0.6s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(-5px);
+}
+</style>
+
+<script>
+function showMessage(){
+    let p = document.getElementById("demo");
+    p.innerHTML = "Hello world!";
+    p.classList.add("show");
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<button onclick="showMessage()">Show Message</button>
+
+<p id="demo"></p>
+</div>
+
+</body>
+</html>

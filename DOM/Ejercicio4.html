@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Elementos | Ejercicio 4</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        #lista-ejemplo {
+            list-style: none;
+            width: 300px;
+            padding: 0;
+        }
+
+        li {
+            background: #1a1a1a;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--neon-purple);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        li:hover {
+            background: #240046;
+            transform: scale(1.02);
+        }
+
+        .btn-borrar {
+            color: #ff4d4d;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gestor de Lista</h1>
+    <p>Haz clic en cualquier elemento para eliminarlo:</p>
+
+    <ul id="lista-ejemplo">
+        <li>Elemento A <span class="btn-borrar">x</span></li>
+        <li>Elemento B <span class="btn-borrar">x</span></li>
+        <li>Elemento C <span class="btn-borrar">x</span></li>
+    </ul>
+
+    <script>
+        const lista = document.getElementById("lista-ejemplo");
+
+        lista.addEventListener("click", function(e) {
+            // Verificamos si el clic fue en un elemento li
+            // (el 'e.target' detecta el elemento exacto clickeado)
+            let elemento = e.target;
+            
+            // Si el usuario clica en el span, tomamos su padre (el li)
+            if (elemento.tagName === "SPAN") {
+                elemento = elemento.parentElement;
+            }
+
+            // Usamos removeChild para borrar el elemento del padre
+            if (elemento.tagName === "LI") {
+                lista.removeChild(elemento);
+            }
+        });
+    </script>
+</body>
+</html>

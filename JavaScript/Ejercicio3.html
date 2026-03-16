@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Selector</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    text-align:center;
+    background: linear-gradient(135deg,#1a001f,#4b0082);
+    color:white;
+    transition: all 0.5s;
+}
+
+h1{
+    margin-top:40px;
+    animation: fadeIn 1.5s;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin-top:40px;
+}
+
+.box{
+    background: rgba(0,0,0,0.6);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(138,43,226,0.5);
+}
+
+img{
+    height:250px;
+    border-radius:10px;
+    margin-top:15px;
+    transition: transform 0.4s;
+}
+
+img:hover{
+    transform: scale(1.08);
+}
+
+select{
+    padding:8px;
+    border-radius:6px;
+    border:none;
+    margin-top:10px;
+}
+
+button{
+    margin-top:30px;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#8a2be2;
+    color:white;
+    cursor:pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #8a2be2;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.light{
+    background: linear-gradient(135deg,#e6ccff,#f5e6ff);
+    color:black;
+}
+
+.light .box{
+    background:white;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+</style>
+
+<script>
+
+function cambiaCoche(){
+    let valor=document.getElementById("selectCoche").value;
+    document.getElementById("imgCoche").src=valor;
+}
+
+function cambiaSpider(){
+    let valor=document.getElementById("selectSpider").value;
+    document.getElementById("imgSpider").src=valor;
+}
+
+function cambiarEstilo(){
+    document.body.classList.toggle("light");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Galería de Imágenes</h1>
+
+<div class="container">
+
+<div class="box">
+<h2>Coches</h2>
+
+<select id="selectCoche" onchange="cambiaCoche()">
+<option value="coche1.jpg">Coche 1</option>
+<option value="coche2.jpg">Coche 2</option>
+<option value="coche3.jpg">Coche 3</option>
+</select>
+
+<br>
+
+<img id="imgCoche" src="coche1.jpg">
+
+</div>
+
+
+<div class="box">
+<h2>Spiderman</h2>
+
+<select id="selectSpider" onchange="cambiaSpider()">
+<option value="spider1.jpg">Spiderman 1</option>
+<option value="spider2.jpg">Spiderman 2</option>
+<option value="spider3.jpg">Spiderman 3</option>
+</select>
+
+<br>
+
+<img id="imgSpider" src="spider1.jpg">
+
+</div>
+
+</div>
+
+<button onclick="cambiarEstilo()">Cambiar estilo</button>
+
+</body>
+</html>

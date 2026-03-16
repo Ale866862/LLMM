@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Elementos Dinámicos | Ejercicio 3</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        #contenedor-img {
+            width: 400px;
+            height: 300px;
+            border: 2px dashed var(--neon-purple);
+            border-radius: 15px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f0f0f;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; scale: 0.8; } to { opacity: 1; scale: 1; } }
+
+        button {
+            padding: 12px 25px;
+            background: var(--neon-purple);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { box-shadow: 0 0 15px var(--neon-purple); }
+    </style>
+</head>
+<body>
+
+    <h1>Generador Dinámico de Elementos</h1>
+    <button onclick="agregarImagen()">Agregar imagen al DOM</button>
+
+    <div id="contenedor-img">
+        <p style="color: #666;">El div está vacío...</p>
+    </div>
+
+    <script>
+        function agregarImagen() {
+            const contenedor = document.getElementById("contenedor-img");
+            
+            // 1. Crear el elemento img
+            const nuevaImagen = document.createElement("img");
+            
+            // 2. Definir atributos
+            nuevaImagen.src = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=400&q=80";
+            nuevaImagen.alt = "Imagen cargada dinámicamente";
+            
+            // 3. Limpiar contenido previo (el texto de aviso)
+            contenedor.innerHTML = "";
+            
+            // 4. Agregar el nodo hijo al DOM
+            contenedor.appendChild(nuevaImagen);
+        }
+    </script>
+</body>
+</html>

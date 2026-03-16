@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Funciones JS | Edición Morado</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --light-purple: #a855f7;
+            --dark-bg: #050505;
+            --card-bg: #0f0f0f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--light-purple);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover { border-color: var(--neon-purple); box-shadow: 0 0 15px rgba(106, 13, 173, 0.4); }
+
+        .card h3 { color: var(--light-purple); margin-bottom: 15px; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+
+        input { width: 100%; padding: 10px; margin-bottom: 10px; background: #000; border: 1px solid #333; border-radius: 5px; color: white; }
+
+        button { width: 100%; padding: 10px; background: var(--neon-purple); border: none; border-radius: 5px; color: white; cursor: pointer; transition: 0.3s; }
+
+        button:hover { background: var(--light-purple); }
+
+        .result { margin-top: 15px; padding: 10px; background: rgba(106, 13, 173, 0.1); border-radius: 5px; color: #d1d1d1; }
+        
+        span { color: var(--light-purple); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Panel de Control de Funciones JS</h1>
+
+    <div class="container">
+        <div class="card">
+            <h3>1. Número mayor de dos</h3>
+            <input type="number" id="max1" placeholder="Número 1">
+            <input type="number" id="max2" placeholder="Número 2">
+            <button onclick="uiMax()">Comparar</button>
+            <p class="result" id="resMax">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>2. Número mayor de tres</h3>
+            <input type="number" id="m3-1" placeholder="Número 1">
+            <input type="number" id="m3-2" placeholder="Número 2">
+            <input type="number" id="m3-3" placeholder="Número 3">
+            <button onclick="uiMaxThree()">Comparar</button>
+            <p class="result" id="resMaxThree">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>3. ¿Es una vocal?</h3>
+            <input type="text" id="charInput" maxlength="1" placeholder="Escribe un carácter">
+            <button onclick="uiVowel()">Verificar</button>
+            <p class="result" id="resVowel">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>4. Traductor a Rövarspråket</h3>
+            <input type="text" id="rovarInput" placeholder="Escribe tu texto">
+            <button onclick="uiTranslate()">Traducir</button>
+            <p class="result" id="resRovar">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>5. Suma y Multiplicación de array</h3>
+            <input type="text" id="arrayInput" placeholder="Ej: 1,2,3,4">
+            <button onclick="uiSumMult()">Calcular</button>
+            <p class="result" id="resSumMult">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>6. Invertir cadena</h3>
+            <input type="text" id="revInput" placeholder="Texto aquí">
+            <button onclick="uiReverse()">Invertir</button>
+            <p class="result" id="resRev">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>7. Ordenar lista de palabras</h3>
+            <input type="text" id="sortInput" placeholder="palabra, otra, abc">
+            <button onclick="uiSort()">Ordenar</button>
+            <p class="result" id="resSort">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>8. Palabra más larga</h3>
+            <input type="text" id="longInput" placeholder="casa, edificio, sol">
+            <button onclick="uiLongest()">Calcular</button>
+            <p class="result" id="resLongest">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>9. Filtrar palabras por longitud</h3>
+            <input type="text" id="filterWords" placeholder="palabras, separadas, por, coma">
+            <input type="number" id="filterLen" placeholder="Longitud mínima">
+            <button onclick="uiFilter()">Filtrar</button>
+            <p class="result" id="resFilter">Resultado: </p>
+        </div>
+
+        <div class="card">
+            <h3>10. Frecuencia de caracteres</h3>
+            <input type="text" id="freqInput" placeholder="Ej: abracadabra">
+            <button onclick="uiFreq()">Analizar</button>
+            <p class="result" id="resFreq">Resultado: </p>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de funciones
+        function max(a, b) { return a > b ? a : b; }
+        function maxOfThree(a, b, c) { return max(max(a, b), c); }
+        function isVowel(c) { return 'aeiouAEIOU'.includes(c); }
+        function translate(t) {
+            return t.split('').map(c => /[bcdfghjklmnpqrstvwxyz]/i.test(c) ? c + 'o' + c : c).join('');
+        }
+        function sum(arr) { return arr.reduce((a, b) => a + b, 0); }
+        function multiply(arr) { return arr.reduce((a, b) => a * b, 1); }
+        function reverse(s) { return s.split('').reverse().join(''); }
+        function uiMax() { document.getElementById('resMax').innerHTML = `El mayor es: <span>${max(parseFloat(document.getElementById('max1').value), parseFloat(document.getElementById('max2').value))}</span>`; }
+        function uiMaxThree() { document.getElementById('resMaxThree').innerHTML = `El mayor es: <span>${maxOfThree(parseFloat(document.getElementById('m3-1').value), parseFloat(document.getElementById('m3-2').value), parseFloat(document.getElementById('m3-3').value))}</span>`; }
+        function uiVowel() { document.getElementById('resVowel').innerHTML = `¿Es vocal?: <span>${isVowel(document.getElementById('charInput').value)}</span>`; }
+        function uiTranslate() { document.getElementById('resRovar').innerHTML = `Traducción: <span>${translate(document.getElementById('rovarInput').value)}</span>`; }
+        function uiSumMult() { let arr = document.getElementById('arrayInput').value.split(',').map(Number); document.getElementById('resSumMult').innerHTML = `Suma: <span>${sum(arr)}</span> | Mult: <span>${multiply(arr)}</span>`; }
+        function uiReverse() { document.getElementById('resRev').innerHTML = `Invertido: <span>${reverse(document.getElementById('revInput').value)}</span>`; }
+        function uiSort() { document.getElementById('resSort').innerHTML = `Ordenado: <span>${document.getElementById('sortInput').value.split(',').sort().join(', ')}</span>`; }
+        function uiLongest() { let w = document.getElementById('longInput').value.split(','); document.getElementById('resLongest').innerHTML = `Longitud: <span>${Math.max(...w.map(s => s.trim().length))}</span>`; }
+        function uiFilter() { let w = document.getElementById('filterWords').value.split(','), i = document.getElementById('filterLen').value; document.getElementById('resFilter').innerHTML = `Filtrado: <span>${w.filter(s => s.trim().length > i).join(', ')}</span>`; }
+        function uiFreq() { 
+            let t = document.getElementById('freqInput').value, f = {};
+            for(let c of t) f[c] = (f[c]||0)+1;
+            document.getElementById('resFreq').innerHTML = `Frecuencia: <span>${JSON.stringify(f)}</span>`;
+        }
+    </script>
+</body>
+</html>

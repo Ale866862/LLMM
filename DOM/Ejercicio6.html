@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida Dinámica | Ejercicio 6</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body { 
+            background-color: var(--dark-bg); 
+            color: white; 
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Notificación que aparece al cargar */
+        #mensaje-bienvenida {
+            position: fixed;
+            top: 20px;
+            background: #1a1a1a;
+            border: 1px solid var(--neon-purple);
+            padding: 20px 40px;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(106, 13, 173, 0.5);
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Esperando carga...</h1>
+
+    <div id="mensaje-bienvenida">
+        ¡Bienvenido a nuestro Dashboard Moderno!
+    </div>
+
+    <script>
+        // Función de saludo
+        function saludar() {
+            const mensaje = document.getElementById("mensaje-bienvenida");
+            mensaje.classList.add("visible");
+            console.log("El documento ha terminado de cargar. Saludo ejecutado.");
+        }
+
+        // Ejecutar al cargar la página
+        window.onload = saludar;
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lights Out | Modern Purple Edition</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+            --off-color: #1a1a1a;
+        }
+
+        body { background: var(--dark-bg); color: white; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+        
+        #tablero {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .celda {
+            width: 60px;
+            height: 60px;
+            background: var(--off-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .celda.on {
+            background: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: var(--neon-purple);
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lights Out</h1>
+    <div id="tablero"></div>
+    <button onclick="reiniciarJuego()">Reiniciar Juego</button>
+
+    <script>
+        const tableroDiv = document.getElementById('tablero');
+        let tablero = Array(5).fill().map(() => Array(5).fill(false));
+
+        function crearTablero() {
+            tableroDiv.innerHTML = '';
+            for (let r = 0; r < 5; r++) {
+                for (let c = 0; c < 5; c++) {
+                    const celda = document.createElement('div');
+                    celda.className = 'celda';
+                    celda.onclick = () => alternar(r, c);
+                    tableroDiv.appendChild(celda);
+                }
+            }
+        }
+
+        function alternar(r, c) {
+            const direcciones = [[0,0], [0,1], [0,-1], [1,0], [-1,0]];
+            direcciones.forEach(([dr, dc]) => {
+                let nr = r + dr, nc = c + dc;
+                if (nr >= 0 && nr < 5 && nc >= 0 && nc < 5) {
+                    tablero[nr][nc] = !tablero[nr][nc];
+                }
+            });
+            actualizarUI();
+            verificarVictoria();
+        }
+
+        function actualizarUI() {
+            const celdas = document.querySelectorAll('.celda');
+            tablero.flat().forEach((val, i) => {
+                celdas[i].className = val ? 'celda on' : 'celda';
+            });
+        }
+
+        function reiniciarJuego() {
+            tablero = Array(5).fill().map(() => Array(5).fill(false));
+            // Mezclamos un poco haciendo clics aleatorios
+            for(let i=0; i<10; i++) alternar(Math.floor(Math.random()*5), Math.floor(Math.random()*5));
+            actualizarUI();
+        }
+
+        crearTablero();
+        reiniciarJuego();
+
+        function verificarVictoria() {
+            if (tablero.flat().every(v => v === false)) alert("¡Felicidades! ¡Has apagado todas las luces!");
+        }
+    </script>
+</body>
+</html>

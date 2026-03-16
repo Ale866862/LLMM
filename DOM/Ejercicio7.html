@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evento onClick | Ejercicio 7</title>
+    <style>
+        :root {
+            --neon-purple: #6a0dad;
+            --dark-bg: #050505;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        #contenedor-destino {
+            width: 450px;
+            height: 300px;
+            border: 2px solid var(--neon-purple);
+            border-radius: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f0f0f;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(106, 13, 173, 0.2);
+        }
+
+        .img-estilo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Animación de entrada */
+            animation: aparecer 0.8s ease-out forwards;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        button {
+            padding: 15px 30px;
+            background: var(--neon-purple);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover { 
+            box-shadow: 0 0 20px var(--neon-purple);
+            background: #a855f7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generador por Clic</h1>
+    <button onclick="agregarImagen()">Clic para cargar imagen</button>
+
+    <div id="contenedor-destino">
+        <p style="color: #666;">Haz clic para mostrar la imagen</p>
+    </div>
+
+    <script>
+        function agregarImagen() {
+            const contenedor = document.getElementById("contenedor-destino");
+            
+            // Verificamos si ya existe una imagen para no duplicar
+            if (contenedor.querySelector("img")) return;
+
+            // 1. Crear el objeto de imagen en el DOM
+            const img = document.createElement("img");
+            
+            // 2. Asignar propiedades
+            img.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80";
+            img.alt = "Imagen dinámica";
+            img.classList.add("img-estilo");
+            
+            // 3. Limpiar el texto de aviso y añadir la imagen
+            contenedor.innerHTML = "";
+            contenedor.appendChild(img);
+            
+            console.log("Imagen agregada con éxito mediante el evento onclick.");
+        }
+    </script>
+</body>
+</html>

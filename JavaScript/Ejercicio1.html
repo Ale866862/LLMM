@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Exercise</title>
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#74ebd5,#9face6);
+    font-family: Arial;
+    text-align: center;
+    padding-top: 80px;
+}
+
+h1{
+    color: #2c3e50;
+    animation: fadeIn 2s;
+}
+
+#demo{
+    color: white;
+    background-color: #3498db;
+    padding: 20px;
+    width: 220px;
+    margin: 30px auto;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: all 0.4s ease;
+}
+
+button{
+    padding: 12px 22px;
+    margin: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.try{
+    background-color: #2ecc71;
+    color: white;
+}
+
+.clear{
+    background-color: #e74c3c;
+    color: white;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.change{
+    transform: scale(1.1);
+    background-color:#2ecc71;
+}
+
+</style>
+
+<script>
+
+function myFunction() {
+    let p = document.getElementById("demo");
+    p.innerHTML = "Paragraph changed!";
+    p.classList.add("change");
+
+    setTimeout(function(){
+        p.classList.remove("change");
+    },400);
+}
+
+function clearParagraph() {
+    let p = document.getElementById("demo");
+    p.innerHTML = "";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>My Web Page</h1>
+
+<p id="demo">A Paragraph</p>
+
+<button class="try" onclick="myFunction()">Try it</button>
+
+<button class="clear" onclick="clearParagraph()">Clear</button>
+
+</body>
+</html>

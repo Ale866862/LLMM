@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Captcha Verificado</title>
+    <style>
+        :root { --neon-purple: #6a0dad; --dark-bg: #050505; }
+        body { background: var(--dark-bg); color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        
+        .container { 
+            background: #111; padding: 30px; border-radius: 20px; 
+            border: 2px solid var(--neon-purple); text-align: center;
+            box-shadow: 0 0 20px rgba(106, 13, 173, 0.5);
+        }
+
+        /* Contenedor de la imagen con borde neón */
+        #img-captcha { 
+            width: 250px; height: 250px; object-fit: cover; 
+            border: 4px solid var(--neon-purple); border-radius: 15px;
+            margin-bottom: 20px; transition: 0.5s;
+        }
+
+        input { padding: 12px; width: 200px; border-radius: 5px; border: none; }
+        button { padding: 12px 20px; background: var(--neon-purple); color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>¿Qué animal ves?</h2>
+    <img id="img-captcha" src="https://placehold.co/250x250/dark/white?text=Cargando...">
+    <br>
+    <input type="text" id="respuesta" placeholder="escribe el animal...">
+    <button onclick="validar()">Validar</button>
+    <p id="feedback"></p>
+</div>
+
+<script>
+    // Datos: en lugar de URLs complejas, usamos estas que funcionan en cualquier parte
+    const retos = [
+        { img: "https://placehold.co/250x250/purple/white?text=GATO", tag: "gato" },
+        { img: "https://placehold.co/250x250/blue/white?text=PERRO", tag: "perro" },
+        { img: "https://placehold.co/250x250/red/white?text=TIGRE", tag: "tigre" }
+    ];
+
+    let actual = 0;
+
+    function nuevoCaptcha() {
+        actual = Math.floor(Math.random() * retos.length);
+        document.getElementById("img-captcha").src = retos[actual].img;
+    }
+
+    function validar() {
+        const val = document.getElementById("respuesta").value.toLowerCase();
+        const feed = document.getElementById("feedback");
+        
+        if (val === retos[actual].tag) {
+            feed.innerHTML = "✅ ¡Correcto!";
+            feed.style.color = "lightgreen";
+        } else {
+            feed.innerHTML = "❌ Fallaste, intentando nuevo...";
+            feed.style.color = "red";
+            setTimeout(nuevoCaptcha, 1000);
+        }
+    }
+
+    // Inicializar
+    window.onload = nuevoCaptcha;
+</script>
+
+</body>
+</html>

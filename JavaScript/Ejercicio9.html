@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter | Neon Edition</title>
+    <style>
+        :root {
+            --primary-purple: #6a0dad;
+            --secondary-purple: #a855f7;
+            --bg-black: #050505;
+            --card-bg: #0f0f0f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Contenedor tipo Tarjeta */
+        .converter-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-purple);
+            box-shadow: 0 10px 40px rgba(106, 13, 173, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--secondary-purple);
+        }
+
+        /* Grupos de Input */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--secondary-purple);
+            font-size: 1.2rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+        }
+
+        /* Botón con animación */
+        .btn-convert {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-purple);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-convert:hover {
+            background: var(--secondary-purple);
+            box-shadow: 0 0 20px var(--secondary-purple);
+            transform: scale(1.02);
+        }
+
+        .btn-convert:active {
+            transform: scale(0.98);
+        }
+
+        .divider {
+            height: 1px;
+            background: #333;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="converter-card">
+        <h2>Temp <span style="color:white">Converter</span></h2>
+        
+        <div class="input-group">
+            <label for="tbf">Grados Fahrenheit (°F)</label>
+            <input type="number" id="tbf" placeholder="Ej: 32">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="input-group">
+            <label for="tbc">Grados Celsius (°C)</label>
+            <input type="number" id="tbc" placeholder="Ej: 0">
+        </div>
+
+        <button type="button" class="btn-convert" onclick="convertir()">Calcular</button>
+    </div>
+
+    <script>
+        function convertir() {
+            const fInput = document.getElementById("tbf");
+            const cInput = document.getElementById("tbc");
+
+            // Si el usuario escribió en Fahrenheit
+            if (fInput.value !== "" && document.activeElement === fInput) {
+                let f = parseFloat(fInput.value);
+                let res = (f - 32) * 5 / 9;
+                cInput.value = res.toFixed(2);
+                animateInput(cInput);
+            } 
+            // Si el usuario escribió en Celsius (o ambos están llenos pero el foco está en C)
+            else if (cInput.value !== "") {
+                let c = parseFloat(cInput.value);
+                let res = (c * 9 / 5) + 32;
+                fInput.value = res.toFixed(2);
+                animateInput(fInput);
+            }
+        }
+
+        // Animación de destello al cambiar el valor
+        function animateInput(el) {
+            el.style.backgroundColor = "#240046";
+            setTimeout(() => {
+                el.style.backgroundColor = "#000";
+            }, 300);
+        }
+
+        // Permitir convertir al pulsar "Enter"
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                convertir();
+            }
+        });
+    </script>
+</body>
+</html>
