@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Quiz - XML & AJAX Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="quiz-container">
+    <header>
+        <h1 id="lbl-title">SYSTEM QUIZ</h1>
+        <div class="controls">
+            <select id="select-test" onchange="cargarTest(this.value)">
+                <option value="test1.xml">CORE I: AI & HARDWARE</option>
+                <option value="test2.xml">CORE II: CYBERSEC & CYBERPUNK</option>
+            </select>
+            <select id="select-lang" onchange="cambiarIdioma(this.value)">
+                <option value="es">ESP</option>
+                <option value="en">ENG</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="info-panel">
+        <div><span id="lbl-question-num">Pregunta</span>: <span id="current-idx">0</span>/<span id="total-idx">0</span></div>
+        <div><span id="lbl-timer">Tiempo</span>: <span id="timer-clock">00:00</span></div>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="question-box">
+            <h3 id="question-text">Iniciando protocolo de carga XML...</h3>
+            <div id="choices-block" class="choices-container"></div>
+        </div>
+
+        <div class="footer-buttons">
+            <button id="btn-prev" onclick="anteriorPregunta()" disabled>Anterior</button>
+            <button id="btn-next" onclick="siguientePregunta()">Siguiente</button>
+        </div>
+    </div>
+
+    <div id="result-screen" style="display: none;">
+        <h2 id="lbl-finished">¡Prueba Finalizada!</h2>
+        <p id="lbl-your-score">Tu puntuación es:</p>
+        <div class="score-big"><span id="score-value">0</span> / <span id="score-total">0</span></div>
+        <button id="btn-restart" onclick="reiniciarQuiz()">Reiniciar Test</button>
+    </div>
+</div>
+
+<script>
+let xmlDoc = null;
+let questions = [];
+let currentQuestionIndex = 0;
+let userAnswers = {}; 
+let timerInterval = null;
+let secondsElapsed = 0;
+let currentLang = 'es';
+
+const translations = {
+    es: {
+        title: "SYSTEM QUIZ",
+        question: "Pregunta",
+        timer: "Tiempo",
+        prev: "Anterior",
+        next: "Siguiente",
+        finish: "Finalizar",
+        finished: "[ PROTOCOLO FINALIZADO ]",
+        score: "Puntuación de red obtenida:",
+        restart: "Reiniciar Core"
+    },
+    en: {
+        title: "SYSTEM QUIZ",
+        question: "Question",
+        timer: "Time",
+        prev: "Previous",
+        next: "Next",
+        finish: "Finish",
+        finished: "[ CONFLICT RESOLVED ]",
+        score: "Network score achieved:",
+        restart: "Reboot Core"
+    }
+};
+
+window.onload = function() {
+    cambiarIdioma('es');
+    cargarTest(document.getElementById('select-test').value);
+};
+
+function cargarTest(url) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        xmlDoc = this.responseXML;
+        if (xmlDoc) {
+            questions = xmlDoc.getElementsByTagName("question");
+            reiniciarQuiz();
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+
+function mostrarPregunta(index) {
+    if (questions.length === 0) return;
+
+    document.getElementById("current-idx").innerText = index + 1;
+    document.getElementById("total-idx").innerText = questions.length;
+
+    const questionNode = questions[index];
+    const wording = questionNode.getElementsByTagName("wording")[0].textContent;
+    const choiceNodes = questionNode.getElementsByTagName("choice");
+
+    document.getElementById("question-text").innerText = wording;
+
+    const choicesBlock = document.getElementById("choices-block");
+    choicesBlock.innerHTML = ""; 
+
+    for (let i = 0; i < choiceNodes.length; i++) {
+        const choiceText = choiceNodes[i].textContent;
+        const isChecked = userAnswers[index] === i ? "checked" : "";
+
+        const optionHtml = `
+            <label class="choice-option">
+                <input type="radio" name="q-option" value="${i}" ${isChecked} onchange="guardarRespuesta(${index}, ${i})">
+                <span>${choiceText}</span>
+            </label>
+        `;
+        choicesBlock.insertAdjacentHTML('beforeend', optionHtml);
+    }
+
+    document.getElementById("btn-prev").disabled = (index === 0);
+    
+    const btnNext = document.getElementById("btn-next");
+    if (index === questions.length - 1) {
+        btnNext.innerText = translations[currentLang].finish;
+    } else {
+        btnNext.innerText = translations[currentLang].next;
+    }
+}
+
+function guardarRespuesta(qIdx, choiceIdx) {
+    userAnswers[qIdx] = choiceIdx;
+}
+
+function siguientePregunta() {
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        mostrarPregunta(currentQuestionIndex);
+    } else {
+        finalizarQuiz();
+    }
+}
+
+function anteriorPregunta() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        mostrarPregunta(currentQuestionIndex);
+    }
+}
+
+function finalizarQuiz() {
+    clearInterval(timerInterval); 
+    let score = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+        const choiceNodes = questions[i].getElementsByTagName("choice");
+        const selectedIndex = userAnswers[i];
+
+        if (selectedIndex !== undefined) {
+            const isCorrect = choiceNodes[selectedIndex].getAttribute("correct") === "yes";
+            if (isCorrect) score++;
+        }
+    }
+
+    document.getElementById("quiz-screen").style.display = "none";
+    document.getElementById("result-screen").style.display = "block";
+    document.getElementById("score-value").innerText = score;
+    document.getElementById("score-total").innerText = questions.length;
+}
+
+function reiniciarQuiz() {
+    currentQuestionIndex = 0;
+    userAnswers = {};
+    secondsElapsed = 0;
+    
+    document.getElementById("quiz-screen").style.display = "block";
+    document.getElementById("result-screen").style.display = "none";
+    
+    mostrarPregunta(currentQuestionIndex);
+    
+    clearInterval(timerInterval);
+    document.getElementById("timer-clock").innerText = "00:00";
+    timerInterval = setInterval(actualizarCronometro, 1000);
+}
+
+function actualizarCronometro() {
+    secondsElapsed++;
+    const mins = Math.floor(secondsElapsed / 60).toString().padStart(2, '0');
+    const secs = (secondsElapsed % 60).toString().padStart(2, '0');
+    document.getElementById("timer-clock").innerText = `${mins}:${secs}`;
+}
+
+function cambiarIdioma(lang) {
+    currentLang = lang;
+    
+    document.getElementById("lbl-title").innerText = translations[lang].title;
+    document.getElementById("lbl-question-num").innerText = translations[lang].question;
+    document.getElementById("lbl-timer").innerText = translations[lang].timer;
+    document.getElementById("btn-prev").innerText = translations[lang].prev;
+    document.getElementById("lbl-finished").innerText = translations[lang].finished;
+    document.getElementById("lbl-your-score").innerText = translations[lang].score;
+    document.getElementById("btn-restart").innerText = translations[lang].restart;
+
+    if (questions.length > 0) {
+        const btnNext = document.getElementById("btn-next");
+        if (currentQuestionIndex === questions.length - 1) {
+            btnNext.innerText = translations[lang].finish;
+        } else {
+            btnNext.innerText = translations[lang].next;
+        }
+    }
+}
+</script>
+</body>
+</html>
