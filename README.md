@@ -105,6 +105,9 @@
 | [Ejercicio 12](CSS/Ejercicio12.html) | Actividades de CSS.|
 
 
+## Práctica 3er Trimestre - Cuestionario
 
-
+| Actividad | descripción |
+| --- | --- |
+| [Práctica XML](https://ale866862.github.io/LLMM/Prácticaa/index.html) | Actividad final |
 
